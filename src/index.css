@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@300..700&family=Outfit:wght@100..900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Quicksand", "Fredoka", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Fredoka", sans-serif;
+  
+  --color-primary-50: #fef2f2;
+  --color-primary-100: #ffe4e4;
+  --color-primary-200: #fbcaca;
+  --color-primary-300: #fbaaaa;
+  --color-primary-400: #f88a8a;
+  --color-primary-500: #f37373;
+  --color-primary-600: #db5c5c;
+  --color-primary-700: #b83f3f;
+  
+  --color-secondary-50: #f0fdfd;
+  --color-secondary-100: #d7fafb;
+  --color-secondary-200: #92ebef;
+  --color-secondary-300: #57dce2;
+  --color-secondary-350: #3cd0d7;
+  --color-secondary-500: #1b9796;
+  --color-secondary-600: #137575;
+  --color-secondary-700: #125e5e;
+  
+  --color-blue-50: #f0fdfa;
+  --color-blue-100: #ccfbf1;
+  --color-blue-200: #99f6e4;
+  --color-blue-500: #14b8a6;
+}
+
+/* Base custom styles of Frosted Glass Theme */
+@layer base {
+  body {
+    background-color: #ffffff;
+    color: #2c3e3e; /* rich teal-tinted deep slate */
+    font-family: var(--font-sans);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: #123838; /* dark primary display text */
+  }
+}
+
+/* Glassmorphism helpers for Frosted Glass Theme */
+.glass-card {
+  background-color: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(251, 202, 202, 0.35);
+}
+
+.glass-item {
+  background-color: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(251, 202, 202, 0.5);
+}
+
+.glass-nav {
+  background-color: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid rgba(251, 202, 202, 0.35);
+}
+
+/* Paw Print Soft Background Pattern overlay */
+.paw-bg-pattern {
+  background-image: radial-gradient(rgba(243, 115, 115, 0.04) 1.2px, transparent 0);
+  background-size: 28px 24px;
+}
+
+.cloud-border {
+  border-radius: 2rem 2rem 2.5rem 2.5rem;
+}
+
+/* Continuous Marquee Scrolling Animation */
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-33.3333%);
+  }
+}
+
+.animate-marquee {
+  display: inline-flex;
+  white-space: nowrap;
+  animation: marquee 20s linear infinite;
+}
+
+
+

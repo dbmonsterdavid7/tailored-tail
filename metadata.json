@@ -1,0 +1,6 @@
+{
+  "name": "The Tailored Tail",
+  "description": "Professional dog and cat pet grooming services in Canton, MI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
