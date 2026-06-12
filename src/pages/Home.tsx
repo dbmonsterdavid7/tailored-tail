@@ -11,7 +11,8 @@ export default function Home() {
     "https://lh3.googleusercontent.com/d/1tQxkuU4XyOdtqXXTDxVyp8lwGcMhVcQk",
     "https://lh3.googleusercontent.com/d/1TvY88fV2cKi2Q7tX8LE8i4NBeOuSkZMa",
     "https://lh3.googleusercontent.com/d/163uTSlwF6z6qUZ659Gq7XROPCN_WK6tx",
-    "https://lh3.googleusercontent.com/d/1tPWU4u7U_gHxLSXnlD76x5FJGEJ5_EoU"
+    "https://lh3.googleusercontent.com/d/1tPWU4u7U_gHxLSXnlD76x5FJGEJ5_EoU",
+    "https://lh3.googleusercontent.com/d/10H0GKXytpGSgQGjmPQih8PTsKh-eWy0j"
   ];
 
   useEffect(() => {

@@ -33,7 +33,7 @@ export default function Navbar() {
         {/* Desktop Layout - static centered text */}
         <div className="hidden md:flex items-center justify-center gap-2">
           <Heart className="w-4 h-4 fill-current animate-pulse text-white shrink-0" />
-          <span>Owner is Pet CPR Certified &amp; 24.5+ Years Canton, MI Experience!</span>
+          <span>Owner is Pet CPR Certified &amp; 24+ Years Pet Grooming Experience!</span>
           <span className="font-bold">|</span>
           <span>Call now to secure slot: <a href={`tel:${BUSINESS_INFO.phone}`} className="underline font-bold hover:text-secondary-100">{BUSINESS_INFO.phoneDisplay}</a></span>
         </div>
@@ -43,15 +43,15 @@ export default function Navbar() {
           <div className="animate-marquee whitespace-nowrap flex items-center gap-10">
             <span className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider shrink-0">
               <Heart className="w-3.5 h-3.5 fill-current text-white shrink-0 animate-pulse" />
-              Owner is Pet CPR Certified &amp; 24.5+ Years Canton, MI Experience! &nbsp;&nbsp;|&nbsp;&nbsp; Call now: <a href={`tel:${BUSINESS_INFO.phone}`} className="underline font-bold">{BUSINESS_INFO.phoneDisplay}</a>
+              Owner is Pet CPR Certified &amp; 24+ Years Pet Grooming Experience! &nbsp;&nbsp;|&nbsp;&nbsp; Call now: <a href={`tel:${BUSINESS_INFO.phone}`} className="underline font-bold">{BUSINESS_INFO.phoneDisplay}</a>
             </span>
             <span className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider shrink-0" aria-hidden="true">
               <Heart className="w-3.5 h-3.5 fill-current text-white shrink-0 animate-pulse" />
-              Owner is Pet CPR Certified &amp; 24.5+ Years Canton, MI Experience! &nbsp;&nbsp;|&nbsp;&nbsp; Call now: <a href={`tel:${BUSINESS_INFO.phone}`} className="underline font-bold">{BUSINESS_INFO.phoneDisplay}</a>
+              Owner is Pet CPR Certified &amp; 24+ Years Pet Grooming Experience! &nbsp;&nbsp;|&nbsp;&nbsp; Call now: <a href={`tel:${BUSINESS_INFO.phone}`} className="underline font-bold">{BUSINESS_INFO.phoneDisplay}</a>
             </span>
             <span className="flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider shrink-0" aria-hidden="true">
               <Heart className="w-3.5 h-3.5 fill-current text-white shrink-0 animate-pulse" />
-              Owner is Pet CPR Certified &amp; 24.5+ Years Canton, MI Experience! &nbsp;&nbsp;|&nbsp;&nbsp; Call now: <a href={`tel:${BUSINESS_INFO.phone}`} className="underline font-bold">{BUSINESS_INFO.phoneDisplay}</a>
+              Owner is Pet CPR Certified &amp; 24+ Years Pet Grooming Experience! &nbsp;&nbsp;|&nbsp;&nbsp; Call now: <a href={`tel:${BUSINESS_INFO.phone}`} className="underline font-bold">{BUSINESS_INFO.phoneDisplay}</a>
             </span>
           </div>
         </div>
