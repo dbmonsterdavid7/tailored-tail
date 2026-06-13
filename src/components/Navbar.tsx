@@ -63,7 +63,7 @@ export default function Navbar() {
           <Link to="/" onClick={handleLinkClick} className="flex items-center group">
             <div className="duration-300 group-hover:scale-105 flex items-center justify-center">
               <img 
-                src="https://lh3.googleusercontent.com/d/1VQMqYCXwl7nUe7X-8B2XKCFdVxfzltqK" 
+                src="https://lh3.googleusercontent.com/d/1VQMqYCXwl7nUe7X-8B2XKCFdVxfzltqK=w250" 
                 alt="The Tailored Tail Logo" 
                 className="h-16 w-auto object-contain"
                 referrerPolicy="no-referrer"
