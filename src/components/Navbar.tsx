@@ -67,6 +67,8 @@ export default function Navbar() {
                 alt="The Tailored Tail Logo" 
                 className="h-14 w-auto object-contain" 
                 referrerPolicy="no-referrer"
+                loading="eager"
+                fetchPriority="high"
               />
             </div>
           </Link>

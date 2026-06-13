@@ -34,6 +34,8 @@ export default function About() {
                   alt="Jaime Stanchina"
                   className="absolute inset-0 w-full h-full object-cover select-none transition-transform duration-700 group-hover:scale-105"
                   referrerPolicy="no-referrer"
+                  loading="lazy"
+                  decoding="async"
                 />
 
                 {/* Dark gradient overlay to guarantee superb white text contrast */}

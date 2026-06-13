@@ -6,6 +6,7 @@ import PricingBreakdownTool from '../components/PricingBreakdownTool';
 
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [loadedIndices, setLoadedIndices] = useState<number[]>([0]);
 
   const showcaseSlides = [
     {
@@ -40,12 +41,54 @@ export default function Home() {
     }
   ];
 
+  // Automated carousel rotation interval
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentImageIndex((prev) => (prev + 1) % showcaseSlides.length);
     }, 4500);
     return () => clearInterval(timer);
   }, [showcaseSlides.length]);
+
+  // Eagerly preload upcoming/current slide for flawless animation transitions
+  useEffect(() => {
+    if (!loadedIndices.includes(currentImageIndex)) {
+      setLoadedIndices((prev) => [...prev, currentImageIndex]);
+    }
+    const nextIndex = (currentImageIndex + 1) % showcaseSlides.length;
+    if (!loadedIndices.includes(nextIndex)) {
+      const preloadTimer = setTimeout(() => {
+        setLoadedIndices((prev) => {
+          if (!prev.includes(nextIndex)) {
+            return [...prev, nextIndex];
+          }
+          return prev;
+        });
+      }, 400);
+      return () => clearTimeout(preloadTimer);
+    }
+  }, [currentImageIndex, loadedIndices, showcaseSlides.length]);
+
+  // Staggered non-blocking background precaching for remaining carousel webp assets after paint
+  useEffect(() => {
+    const backgroundPreloadTimer = setTimeout(() => {
+      showcaseSlides.forEach((slide, idx) => {
+        if (idx !== 0) {
+          setTimeout(() => {
+            const img = new Image();
+            img.src = slide.image;
+            setLoadedIndices((prev) => {
+              if (!prev.includes(idx)) {
+                return [...prev, idx];
+              }
+              return prev;
+            });
+          }, idx * 800); // 800ms stagger offset allows mobile networks to breathe
+        }
+      });
+    }, 1500); // Wait 1.5 seconds for core bundle assets and first viewport paint to complete
+
+    return () => clearTimeout(backgroundPreloadTimer);
+  }, []);
 
   const handlePrevImage = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -127,12 +170,20 @@ export default function Home() {
                     }`}
                   >
                     {/* Slide background image with visual hover zoom effect */}
-                    <img
-                      src={slide.image}
-                      alt={slide.title}
-                      className="absolute inset-0 w-full h-full object-cover select-none transition-transform duration-1000 group-hover:scale-105"
-                      referrerPolicy="no-referrer"
-                    />
+                    {loadedIndices.includes(i) ? (
+                      <img
+                        src={slide.image}
+                        alt={slide.title}
+                        className="absolute inset-0 w-full h-full object-cover select-none transition-transform duration-1000 group-hover:scale-105"
+                        referrerPolicy="no-referrer"
+                        loading={i === 0 ? "eager" : "lazy"}
+                        decoding="async"
+                      />
+                    ) : (
+                      <div className="absolute inset-0 bg-slate-900 flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-full border-4 border-slate-700 border-t-primary-500 animate-spin" />
+                      </div>
+                    )}
 
                     {/* Dark gradient vignette overlay to guarantee superb text contrast */}
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/50 to-slate-950/20 z-10" />
