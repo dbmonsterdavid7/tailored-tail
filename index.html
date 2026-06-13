@@ -6,19 +6,16 @@
     <title>The Tailored Tail | Pet Grooming Service in Canton, MI</title>
     <meta name="description" content="The Tailored Tail provides professional, loving, and custom pet grooming services in Canton, MI with over 24.5 years of experience." />
     
-    <!-- Optimize resource loading by preconnecting with CDNs early -->
+    <!-- Font Preconnects & Direct Loading to eliminate CSS import bottlenecks -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://lh3.googleusercontent.com" crossorigin />
-
-    <!-- Fast loading of high-performance Google Web Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Quicksand:wght@300..700&family=Outfit:wght@100..900&display=swap" rel="stylesheet" />
 
     <!-- Open Graph (Facebook / LinkedIn) / Rich Preview Tags -->
     <meta property="og:title" content="The Tailored Tail | Pet Grooming Service in Canton, MI" />
     <meta property="og:description" content="The Tailored Tail provides professional, loving, and custom pet grooming services in Canton, MI with over 24.5 years of experience." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="https://lh3.googleusercontent.com/d/1VQMqYCXwl7nUe7X-8B2XKCFdVxfzltqK=w1200" />
+    <meta property="og:image" content="https://lh3.googleusercontent.com/d/1VQMqYCXwl7nUe7X-8B2XKCFdVxfzltqK=w600" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
 
@@ -26,10 +23,44 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="The Tailored Tail | Pet Grooming Service in Canton, MI" />
     <meta name="twitter:description" content="The Tailored Tail provides professional, loving, and custom pet grooming services in Canton, MI with over 24.5 years of experience." />
-    <meta name="twitter:image" content="https://lh3.googleusercontent.com/d/1VQMqYCXwl7nUe7X-8B2XKCFdVxfzltqK=w1200" />
+    <meta name="twitter:image" content="https://lh3.googleusercontent.com/d/1VQMqYCXwl7nUe7X-8B2XKCFdVxfzltqK=w600" />
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- High-performance immediate-render brand template to prevent mobile white screen -->
+      <div style="position: fixed; inset: 0; background-color: #f9f5f2; display: flex; flex-direction: column; align-items: center; justify-content: center; font-family: 'Fredoka', 'Quicksand', system-ui, sans-serif; gap: 24px; z-index: 99999; padding: 20px; box-sizing: border-box;">
+        <div style="position: relative; width: 100px; height: 100px; display: flex; align-items: center; justify-content: center;">
+          <!-- Visual soft ring pulsing -->
+          <div style="position: absolute; width: 100%; height: 100%; border-radius: 50%; background-color: rgba(243, 115, 115, 0.15); animation: loader-pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;"></div>
+          <!-- Bouncing beautiful golden/rose paw icon -->
+          <svg style="width: 50px; height: 50px; fill: #f37373; animation: loader-bounce 1s ease-in-out infinite alternate; position: relative; z-index: 2;" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 14c1.66 0 3-1.34 3-3s-1.34-3-3-3-3 1.34-3 3 1.34 3 3 3zm-5.5-3c.83 0 1.5-.67 1.5-1.5S7.33 8 6.5 8 5 8.67 5 9.5s.67 1.5 1.5 1.5zm11 0c.83 0 1.5-.67 1.5-1.5S18.33 8 17.5 8s-1.5.67-1.5 1.5.67 1.5 1.5 1.5zm-8.5-4c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1s-1 .45-1 1v1c0 .55.45 1 1 1zm6 0c.55 0 1-.45 1-1V5c0-.55-.45-1-1-1s-1 .45-1 1v1c0 .55.45 1 1 1zm-3-1c.55 0 1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1v1c0 .55.45 1 1 1z"/>
+          </svg>
+        </div>
+        <div style="text-align: center;">
+          <h2 style="margin: 0 0 8px 0; color: #123838; font-size: 24px; font-weight: 700;">The Tailored Tail</h2>
+          <p style="margin: 0; color: #db5c5c; font-size: 14px; font-weight: 600; letter-spacing: 0.5px;">Grooming with Love & Precision</p>
+        </div>
+        <!-- High Contrast Tiny Native CSS Spinner -->
+        <div style="width: 80px; height: 4px; background-color: rgba(243, 115, 115, 0.2); border-radius: 2px; overflow: hidden; position: relative;">
+          <div style="position: absolute; height: 100%; width: 40%; background-color: #f37373; border-radius: 2px; animation: loader-bar 1.5s infinite ease-in-out;"></div>
+        </div>
+      </div>
+      <style>
+        @keyframes loader-bounce {
+          0% { transform: translateY(0); }
+          100% { transform: translateY(-8px); }
+        }
+        @keyframes loader-pulse {
+          0%, 100% { transform: scale(0.9); opacity: 0.8; }
+          50% { transform: scale(1.15); opacity: 0.2; }
+        }
+        @keyframes loader-bar {
+          0% { left: -40%; }
+          100% { left: 100%; }
+        }
+      </style>
+    </div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -6,6 +6,7 @@ import PricingBreakdownTool from '../components/PricingBreakdownTool';
 
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [loadedIndices, setLoadedIndices] = useState<number[]>([0]);
 
   const heroImages = [
     "https://lh3.googleusercontent.com/d/1tQxkuU4XyOdtqXXTDxVyp8lwGcMhVcQk=w800",
@@ -14,6 +15,16 @@ export default function Home() {
     "https://lh3.googleusercontent.com/d/1tPWU4u7U_gHxLSXnlD76x5FJGEJ5_EoU=w800",
     "https://lh3.googleusercontent.com/d/10H0GKXytpGSgQGjmPQih8PTsKh-eWy0j=w800"
   ];
+
+  useEffect(() => {
+    // Lazily register and load the next image when carousel index moves
+    setLoadedIndices((prev) => {
+      if (!prev.includes(currentImageIndex)) {
+        return [...prev, currentImageIndex];
+      }
+      return prev;
+    });
+  }, [currentImageIndex]);
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -92,23 +103,23 @@ export default function Home() {
               {/* Image box with scrolling showcase */}
               <div className="aspect-square w-full rounded-2xl bg-neutral-900/10 overflow-hidden relative border border-white/60 shadow-inner group">
                 {/* Images with preloaded DOM elements for smooth cross-fading */}
-                {heroImages.map((imgUrl, i) => (
-                  <img
-                    key={imgUrl}
-                    src={imgUrl}
-                    alt={`Signature Grooming Style ${i + 1}`}
-                    width="500"
-                    height="500"
-                    loading={i === 0 ? "eager" : "lazy"}
-                    {...(i === 0 ? { fetchPriority: "high" } : {})}
-                    className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${
-                      i === currentImageIndex 
-                        ? 'opacity-100 scale-100' 
-                        : 'opacity-0 scale-105 pointer-events-none'
-                    }`}
-                    referrerPolicy="no-referrer"
-                  />
-                ))}
+                {heroImages.map((imgUrl, i) => {
+                  const isLoaded = loadedIndices.includes(i);
+                  return (
+                    <img
+                      key={imgUrl}
+                      src={isLoaded ? imgUrl : undefined}
+                      alt={`Signature Grooming Style ${i + 1}`}
+                      className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${
+                        i === currentImageIndex 
+                          ? 'opacity-100 scale-100' 
+                          : 'opacity-0 scale-105 pointer-events-none'
+                      }`}
+                      referrerPolicy="no-referrer"
+                      loading={i === 0 ? "eager" : "lazy"}
+                    />
+                  );
+                })}
 
                 {/* Ambient dark gradient overlay at the bottom for readability of indicators/controls */}
                 <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/50 to-transparent pointer-events-none z-10" />

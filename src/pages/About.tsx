@@ -29,11 +29,8 @@ export default function About() {
             <div className="glass-card p-6 rounded-[2rem] shadow-xl transform -rotate-1 hover:rotate-0 transition-transform duration-500">
               <div className="aspect-[4/5] bg-neutral-900/10 rounded-2xl flex flex-col items-center justify-center relative overflow-hidden border border-white/40 shadow-inner">
                 <img
-                  src="https://lh3.googleusercontent.com/d/15JHIVVpfctruc4Bn4mribxDoEPXP7kvu=w600"
+                  src="https://lh3.googleusercontent.com/d/15JHIVVpfctruc4Bn4mribxDoEPXP7kvu=w800"
                   alt="Owner Groomer Jaime"
-                  width="400"
-                  height="500"
-                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />

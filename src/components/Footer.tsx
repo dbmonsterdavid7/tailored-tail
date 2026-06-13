@@ -15,10 +15,8 @@ export default function Footer() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-3">
             <img 
-              src="https://lh3.googleusercontent.com/d/1VQMqYCXwl7nUe7X-8B2XKCFdVxfzltqK=w250" 
+              src="https://lh3.googleusercontent.com/d/1VQMqYCXwl7nUe7X-8B2XKCFdVxfzltqK=s120" 
               alt="The Tailored Tail Logo" 
-              width="250"
-              height="64"
               className="h-16 w-auto object-contain"
               referrerPolicy="no-referrer"
             />

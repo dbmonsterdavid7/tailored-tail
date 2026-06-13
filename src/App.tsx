@@ -1,26 +1,12 @@
-import React, { useEffect, lazy, Suspense } from 'react';
+import React, { useEffect } from 'react';
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-
-// Lazy load route pages for high page speed and dynamic bundle splitting (limits initial load blocks)
-const Home = lazy(() => import('./pages/Home'));
-const About = lazy(() => import('./pages/About'));
-const Services = lazy(() => import('./pages/Services'));
-const Contact = lazy(() => import('./pages/Contact'));
-const BookNow = lazy(() => import('./pages/BookNow'));
-
-// Soft, responsive loading indicator so the user is never left with a blank screen
-function PageLoader() {
-  return (
-    <div className="flex flex-col items-center justify-center min-h-[60vh] text-center px-4 py-12">
-      <div className="w-12 h-12 border-4 border-primary-200 border-t-primary-500 rounded-full animate-spin mb-4" />
-      <span className="text-xs font-black uppercase tracking-wider text-slate-400 animate-pulse">
-        Loading Sweet Content...
-      </span>
-    </div>
-  );
-}
+import Home from './pages/Home';
+import About from './pages/About';
+import Services from './pages/Services';
+import Contact from './pages/Contact';
+import BookNow from './pages/BookNow';
 
 // Scroll restoration component to move back to top on path change
 function ScrollToTop() {
@@ -48,16 +34,14 @@ export default function App() {
           
           {/* Main Content Stage */}
           <main className="flex-grow">
-            <Suspense fallback={<PageLoader />}>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/services" element={<Services />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="/book-now" element={<BookNow />} />
-                <Route path="*" element={<Home />} /> {/* Failback route */}
-              </Routes>
-            </Suspense>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/services" element={<Services />} />
+              <Route path="/contact" element={<Contact />} />
+              <Route path="/book-now" element={<BookNow />} />
+              <Route path="*" element={<Home />} /> {/* Failback route */}
+            </Routes>
           </main>
 
           <Footer />
