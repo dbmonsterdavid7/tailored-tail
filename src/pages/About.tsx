@@ -31,6 +31,9 @@ export default function About() {
                 <img
                   src="https://lh3.googleusercontent.com/d/15JHIVVpfctruc4Bn4mribxDoEPXP7kvu=w600"
                   alt="Owner Groomer Jaime"
+                  width="400"
+                  height="500"
+                  loading="lazy"
                   className="absolute inset-0 w-full h-full object-cover"
                   referrerPolicy="no-referrer"
                 />

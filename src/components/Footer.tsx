@@ -17,6 +17,8 @@ export default function Footer() {
             <img 
               src="https://lh3.googleusercontent.com/d/1VQMqYCXwl7nUe7X-8B2XKCFdVxfzltqK=w250" 
               alt="The Tailored Tail Logo" 
+              width="250"
+              height="64"
               className="h-16 w-auto object-contain"
               referrerPolicy="no-referrer"
             />

@@ -97,6 +97,10 @@ export default function Home() {
                     key={imgUrl}
                     src={imgUrl}
                     alt={`Signature Grooming Style ${i + 1}`}
+                    width="500"
+                    height="500"
+                    loading={i === 0 ? "eager" : "lazy"}
+                    {...(i === 0 ? { fetchPriority: "high" } : {})}
                     className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${
                       i === currentImageIndex 
                         ? 'opacity-100 scale-100' 
