@@ -9,11 +9,11 @@ export default function Home() {
   const [loadedIndices, setLoadedIndices] = useState<number[]>([0]);
 
   const heroImages = [
-    "https://lh3.googleusercontent.com/d/1tQxkuU4XyOdtqXXTDxVyp8lwGcMhVcQk=w800",
-    "https://lh3.googleusercontent.com/d/1TvY88fV2cKi2Q7tX8LE8i4NBeOuSkZMa=w800",
-    "https://lh3.googleusercontent.com/d/163uTSlwF6z6qUZ659Gq7XROPCN_WK6tx=w800",
-    "https://lh3.googleusercontent.com/d/1tPWU4u7U_gHxLSXnlD76x5FJGEJ5_EoU=w800",
-    "https://lh3.googleusercontent.com/d/10H0GKXytpGSgQGjmPQih8PTsKh-eWy0j=w800"
+    "https://lh3.googleusercontent.com/d/1ePakyMK6eSyh-CtpUbOiCEAe9d6KvX1Q=w800",
+    "https://lh3.googleusercontent.com/d/1ldKl7WvJ9xc_pO5hZy3K6KxVQ1_AySOV=w800",
+    "https://lh3.googleusercontent.com/d/1DtA7Rqc9hw0ZHdtRXV36zfaA285QHHr2=w800",
+    "https://lh3.googleusercontent.com/d/1Vs_uC8F6ujOWiTTanLoCbpTbCd4vVfNN=w800",
+    "https://lh3.googleusercontent.com/d/19YmLN-T3W5S1Gs4n8jkeyIU_LlUDFske=w800"
   ];
 
   useEffect(() => {
