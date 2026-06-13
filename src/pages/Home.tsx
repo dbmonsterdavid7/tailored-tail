@@ -9,39 +9,34 @@ export default function Home() {
 
   const showcaseSlides = [
     {
+      image: "/dog-1.webp",
       title: "Hand-Scissor Styling",
-      icon: "💇‍♂️",
       tag: "Artisan Cuts & Trims",
-      desc: "Jaime custom tailors cuts to the pet's unique body, breed standards, and Canton seasons.",
-      bgColor: "from-teal-600 via-primary-500 to-teal-550"
+      desc: "Jaime custom tailors cuts to your pet's unique body, breed standards, and seasonal needs."
     },
     {
+      image: "/cat-lay.webp",
+      title: "Gentle Feline Care",
+      tag: "Stress-Free Cat Grooming",
+      desc: "Quiet, comfortable grooming lounge with specialized, gentle handling for cats."
+    },
+    {
+      image: "/dog-2.webp",
       title: "Luxury Bath & Brushout",
-      icon: "🛁",
       tag: "Hypoallergenic Spa",
-      desc: "Soapy head rubs, warm skin bathing, deep blow-dry, and professional undercoat de-shedding.",
-      bgColor: "from-primary-600 via-pink-500 to-primary-550"
+      desc: "Warm skin bathing, deep blow-dry, and professional undercoat de-shedding."
     },
     {
-      title: "Gentle Paw Treatment",
-      icon: "💅",
-      tag: "Painless Grinding",
-      desc: "Smooth file rounding with premium precision grinders to preserve claws without standard splits.",
-      bgColor: "from-pink-605 via-amber-500 to-pink-550"
+      image: "/big-dog.webp",
+      title: "All Sizes Welcomed",
+      tag: "Gentle Giant Care",
+      desc: "From huge fluffy Bernedoodles to small delicate pups, we customize based on breed size."
     },
     {
-      title: "Calm Stress-Free Lounge",
-      icon: "🏡",
-      tag: "Comfort First",
-      desc: "Quiet, comfortable drop-off structure minimized for pet comfort, cats, and senior groom schedules.",
-      bgColor: "from-amber-600 via-emerald-500 to-amber-550"
-    },
-    {
-      title: "CPR & Vet Alignment",
-      icon: "🩺",
-      tag: "Absolute Care",
-      desc: "Safety-certified credentials in immediate partner proximity to local Canton vet facilities.",
-      bgColor: "from-emerald-600 via-teal-500 to-emerald-550"
+      image: "/cat-bath.webp",
+      title: "Specialized Water Therapy",
+      tag: "Calming Warm Scented Bath",
+      desc: "Relaxing temperature-regulated skin washing designed to soothe and refresh."
     }
   ];
 
@@ -125,31 +120,37 @@ export default function Home() {
                 {showcaseSlides.map((slide, i) => (
                   <div
                     key={slide.title}
-                    className={`absolute inset-0 bg-gradient-to-tr ${slide.bgColor} text-white p-8 flex flex-col justify-center items-center text-center transition-all duration-1000 ease-in-out ${
+                    className={`absolute inset-0 text-white p-8 flex flex-col justify-end items-center text-center transition-all duration-1000 ease-in-out ${
                       i === currentImageIndex 
                         ? 'opacity-100 scale-100' 
                         : 'opacity-0 scale-105 pointer-events-none'
                     }`}
                   >
-                    {/* Pulsating decorative background sphere */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full bg-white/5 blur-3xl pointer-events-none" />
+                    {/* Slide background image with visual hover zoom effect */}
+                    <img
+                      src={slide.image}
+                      alt={slide.title}
+                      className="absolute inset-0 w-full h-full object-cover select-none transition-transform duration-1000 group-hover:scale-105"
+                      referrerPolicy="no-referrer"
+                    />
 
-                    {/* Fun floating elements */}
-                    <div className="text-6xl mb-4 transform group-hover:scale-110 duration-500 select-none animate-bounce">
-                      {slide.icon}
+                    {/* Dark gradient vignette overlay to guarantee superb text contrast */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/85 via-slate-950/50 to-slate-950/20 z-10" />
+
+                    {/* Content overlays */}
+                    <div className="relative z-20 flex flex-col items-center justify-center pb-6">
+                      <span className="text-xs font-black uppercase tracking-widest bg-white/25 backdrop-blur-sm px-3.5 py-1.5 rounded-full mb-3 border border-white/25 select-none shadow-sm">
+                        {slide.tag}
+                      </span>
+
+                      <h3 className="text-2xl font-black font-heading tracking-tight mb-2 text-white">
+                        {slide.title}
+                      </h3>
+
+                      <p className="text-sm text-slate-100 max-w-xs leading-relaxed">
+                        {slide.desc}
+                      </p>
                     </div>
-
-                    <span className="text-xs font-black uppercase tracking-widest bg-white/20 px-3 py-1 rounded-full mb-3 border border-white/20 select-none">
-                      {slide.tag}
-                    </span>
-
-                    <h3 className="text-2xl font-black font-heading tracking-tight mb-2">
-                      {slide.title}
-                    </h3>
-
-                    <p className="text-sm text-pink-50 max-w-xs leading-relaxed">
-                      {slide.desc}
-                    </p>
                   </div>
                 ))}
 

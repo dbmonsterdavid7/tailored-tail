@@ -25,25 +25,32 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
           {/* Visual card representing Jaime & Team */}
-          <div className="lg:col-span-5 relative">
+          <div className="lg:col-span-5 relative text-slate-900">
             <div className="glass-card p-6 rounded-[2rem] shadow-xl transform -rotate-1 hover:rotate-0 transition-transform duration-500">
-              <div className="aspect-[4/5] bg-gradient-to-br from-teal-500 via-primary-500 to-amber-500 rounded-2xl flex flex-col items-center justify-center p-8 text-center text-white relative overflow-hidden border border-white/40 shadow-inner">
-                {/* Visual backdrop styling representing warmth and safety */}
-                <div className="absolute -top-12 -left-12 text-white/5 text-[10rem] select-none pointer-events-none">🐾</div>
-                
-                <div className="w-20 h-20 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-6 shadow-md border border-white/30">
-                  <span className="text-4xl">👩‍🎨</span>
-                </div>
-                
-                <h3 className="text-2xl font-black font-heading tracking-tight mb-2">Jaime Stanchina</h3>
-                <p className="text-pink-100 text-xs font-semibold uppercase tracking-wider mb-4">Owner & Safety-Certified Groomer</p>
-                
-                <p className="text-white/90 text-xs leading-relaxed max-w-[220px]">
-                  Canton's premier professional styling expert. Safety, artistry, and love in every single groom.
-                </p>
+              <div className="aspect-[4/5] rounded-2xl relative overflow-hidden border border-white/40 shadow-inner group">
+                {/* Visual background image of our brand/founder */}
+                <img
+                  src="/about-us.webp"
+                  alt="Jaime Stanchina"
+                  className="absolute inset-0 w-full h-full object-cover select-none transition-transform duration-700 group-hover:scale-105"
+                  referrerPolicy="no-referrer"
+                />
 
-                <div className="absolute bottom-4 bg-white/10 border border-white/20 backdrop-blur-sm px-4 py-2 rounded-xl text-white font-bold text-xs tracking-wide shadow-sm z-10 w-[90%] flex items-center justify-center gap-2">
-                  <span>✨ Owner Groomer - Jaime</span>
+                {/* Dark gradient overlay to guarantee superb white text contrast */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/35 to-transparent z-10" />
+
+                {/* Narrative content on visual background */}
+                <div className="absolute inset-0 z-20 flex flex-col items-center justify-end p-6 text-center text-white">
+                  <h3 className="text-2xl font-black font-heading tracking-tight mb-1">Jaime Stanchina</h3>
+                  <p className="text-primary-300 text-xs font-semibold uppercase tracking-wider mb-3">Owner & Safety-Certified Groomer</p>
+                  
+                  <p className="text-slate-150 text-xs leading-relaxed max-w-[240px]">
+                    Canton's premier professional styling expert. Safety, artistry, and love in every single groom.
+                  </p>
+
+                  <div className="mt-4 bg-white/10 border border-white/20 backdrop-blur-sm px-4 py-2 rounded-xl text-white font-bold text-xs tracking-wide shadow-sm w-full flex items-center justify-center gap-2">
+                    <span>✨ Owner Groomer - Jaime</span>
+                  </div>
                 </div>
               </div>
             </div>

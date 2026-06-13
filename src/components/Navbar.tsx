@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Scissors, Menu, X, Heart } from 'lucide-react';
+import { Menu, X, Heart } from 'lucide-react';
 import { BUSINESS_INFO } from '../data';
 
 export default function Navbar() {
@@ -61,13 +61,13 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           {/* Logo container */}
           <Link to="/" onClick={handleLinkClick} className="flex items-center group">
-            <div className="duration-300 group-hover:scale-105 flex items-center justify-center gap-2.5">
-              <div className="w-11 h-11 rounded-full bg-primary-500/15 flex items-center justify-center text-primary-600 group-hover:bg-primary-500 group-hover:text-white transition-colors duration-300">
-                <Scissors className="w-5 h-5 rotate-45" />
-              </div>
-              <span className="font-heading font-black text-2xl text-slate-900 tracking-tight">
-                The Tailored <span className="text-primary-500">Tail</span>
-              </span>
+            <div className="duration-300 group-hover:scale-105 flex items-center justify-center">
+              <img 
+                src="/TT-Logo.webp" 
+                alt="The Tailored Tail Logo" 
+                className="h-14 w-auto object-contain" 
+                referrerPolicy="no-referrer"
+              />
             </div>
           </Link>
 
