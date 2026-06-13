@@ -14,12 +14,9 @@ export default function Footer() {
       <div className="bg-gray-800/50 py-8 px-4 border-b border-gray-800">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <div className="flex items-center gap-3">
-            <img 
-              src="https://lh3.googleusercontent.com/d/1VQMqYCXwl7nUe7X-8B2XKCFdVxfzltqK=s120" 
-              alt="The Tailored Tail Logo" 
-              className="h-16 w-auto object-contain"
-              referrerPolicy="no-referrer"
-            />
+            <div className="w-12 h-12 rounded-full bg-primary-500/10 border border-primary-500/20 flex items-center justify-center text-primary-400">
+              <Scissors className="w-6 h-6 rotate-45" />
+            </div>
             <div>
               <h4 className="text-primary-300 text-lg font-bold font-heading">The Tailored Tail Pet Grooming</h4>
               <p className="text-xs text-gray-400">All breed professional dog and cat grooming in Canton, MI.</p>

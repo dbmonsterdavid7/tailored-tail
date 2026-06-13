@@ -61,13 +61,13 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           {/* Logo container */}
           <Link to="/" onClick={handleLinkClick} className="flex items-center group">
-            <div className="duration-300 group-hover:scale-105 flex items-center justify-center">
-              <img 
-                src="https://lh3.googleusercontent.com/d/1VQMqYCXwl7nUe7X-8B2XKCFdVxfzltqK=s120" 
-                alt="The Tailored Tail Logo" 
-                className="h-16 w-auto object-contain"
-                referrerPolicy="no-referrer"
-              />
+            <div className="duration-300 group-hover:scale-105 flex items-center justify-center gap-2.5">
+              <div className="w-11 h-11 rounded-full bg-primary-500/15 flex items-center justify-center text-primary-600 group-hover:bg-primary-500 group-hover:text-white transition-colors duration-300">
+                <Scissors className="w-5 h-5 rotate-45" />
+              </div>
+              <span className="font-heading font-black text-2xl text-slate-900 tracking-tight">
+                The Tailored <span className="text-primary-500">Tail</span>
+              </span>
             </div>
           </Link>
 

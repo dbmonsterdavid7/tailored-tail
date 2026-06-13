@@ -6,43 +6,62 @@ import PricingBreakdownTool from '../components/PricingBreakdownTool';
 
 export default function Home() {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [loadedIndices, setLoadedIndices] = useState<number[]>([0]);
 
-  const heroImages = [
-    "https://lh3.googleusercontent.com/d/1ePakyMK6eSyh-CtpUbOiCEAe9d6KvX1Q=w800",
-    "https://lh3.googleusercontent.com/d/1ldKl7WvJ9xc_pO5hZy3K6KxVQ1_AySOV=w800",
-    "https://lh3.googleusercontent.com/d/1DtA7Rqc9hw0ZHdtRXV36zfaA285QHHr2=w800",
-    "https://lh3.googleusercontent.com/d/1Vs_uC8F6ujOWiTTanLoCbpTbCd4vVfNN=w800",
-    "https://lh3.googleusercontent.com/d/19YmLN-T3W5S1Gs4n8jkeyIU_LlUDFske=w800"
+  const showcaseSlides = [
+    {
+      title: "Hand-Scissor Styling",
+      icon: "💇‍♂️",
+      tag: "Artisan Cuts & Trims",
+      desc: "Jaime custom tailors cuts to the pet's unique body, breed standards, and Canton seasons.",
+      bgColor: "from-teal-600 via-primary-500 to-teal-550"
+    },
+    {
+      title: "Luxury Bath & Brushout",
+      icon: "🛁",
+      tag: "Hypoallergenic Spa",
+      desc: "Soapy head rubs, warm skin bathing, deep blow-dry, and professional undercoat de-shedding.",
+      bgColor: "from-primary-600 via-pink-500 to-primary-550"
+    },
+    {
+      title: "Gentle Paw Treatment",
+      icon: "💅",
+      tag: "Painless Grinding",
+      desc: "Smooth file rounding with premium precision grinders to preserve claws without standard splits.",
+      bgColor: "from-pink-605 via-amber-500 to-pink-550"
+    },
+    {
+      title: "Calm Stress-Free Lounge",
+      icon: "🏡",
+      tag: "Comfort First",
+      desc: "Quiet, comfortable drop-off structure minimized for pet comfort, cats, and senior groom schedules.",
+      bgColor: "from-amber-600 via-emerald-500 to-amber-550"
+    },
+    {
+      title: "CPR & Vet Alignment",
+      icon: "🩺",
+      tag: "Absolute Care",
+      desc: "Safety-certified credentials in immediate partner proximity to local Canton vet facilities.",
+      bgColor: "from-emerald-600 via-teal-500 to-emerald-550"
+    }
   ];
 
   useEffect(() => {
-    // Lazily register and load the next image when carousel index moves
-    setLoadedIndices((prev) => {
-      if (!prev.includes(currentImageIndex)) {
-        return [...prev, currentImageIndex];
-      }
-      return prev;
-    });
-  }, [currentImageIndex]);
-
-  useEffect(() => {
     const timer = setInterval(() => {
-      setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+      setCurrentImageIndex((prev) => (prev + 1) % showcaseSlides.length);
     }, 4500);
     return () => clearInterval(timer);
-  }, [heroImages.length]);
+  }, [showcaseSlides.length]);
 
   const handlePrevImage = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setCurrentImageIndex((prev) => (prev - 1 + heroImages.length) % heroImages.length);
+    setCurrentImageIndex((prev) => (prev - 1 + showcaseSlides.length) % showcaseSlides.length);
   };
 
   const handleNextImage = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    setCurrentImageIndex((prev) => (prev + 1) % heroImages.length);
+    setCurrentImageIndex((prev) => (prev + 1) % showcaseSlides.length);
   };
 
   return (
@@ -100,33 +119,43 @@ export default function Home() {
           <div className="relative mx-auto max-w-md lg:max-w-none">
             {/* Main visually cute card */}
             <div className="glass-card p-6 rounded-[2rem] shadow-xl transform rotate-1 hover:rotate-0 transition-transform duration-500">
-              {/* Image box with scrolling showcase */}
-              <div className="aspect-square w-full rounded-2xl bg-neutral-900/10 overflow-hidden relative border border-white/60 shadow-inner group">
-                {/* Images with preloaded DOM elements for smooth cross-fading */}
-                {heroImages.map((imgUrl, i) => {
-                  const isLoaded = loadedIndices.includes(i);
-                  return (
-                    <img
-                      key={imgUrl}
-                      src={isLoaded ? imgUrl : undefined}
-                      alt={`Signature Grooming Style ${i + 1}`}
-                      className={`absolute inset-0 w-full h-full object-cover transition-all duration-1000 ease-in-out ${
-                        i === currentImageIndex 
-                          ? 'opacity-100 scale-100' 
-                          : 'opacity-0 scale-105 pointer-events-none'
-                      }`}
-                      referrerPolicy="no-referrer"
-                      loading={i === 0 ? "eager" : "lazy"}
-                    />
-                  );
-                })}
+              {/* Interactive vector-based care showcase card */}
+              <div className="aspect-square w-full rounded-2xl overflow-hidden relative border border-white/60 shadow-inner group">
+                {/* Showcase slides with beautiful vector graphics and texts */}
+                {showcaseSlides.map((slide, i) => (
+                  <div
+                    key={slide.title}
+                    className={`absolute inset-0 bg-gradient-to-tr ${slide.bgColor} text-white p-8 flex flex-col justify-center items-center text-center transition-all duration-1000 ease-in-out ${
+                      i === currentImageIndex 
+                        ? 'opacity-100 scale-100' 
+                        : 'opacity-0 scale-105 pointer-events-none'
+                    }`}
+                  >
+                    {/* Pulsating decorative background sphere */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 rounded-full bg-white/5 blur-3xl pointer-events-none" />
 
-                {/* Ambient dark gradient overlay at the bottom for readability of indicators/controls */}
-                <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/50 to-transparent pointer-events-none z-10" />
+                    {/* Fun floating elements */}
+                    <div className="text-6xl mb-4 transform group-hover:scale-110 duration-500 select-none animate-bounce">
+                      {slide.icon}
+                    </div>
+
+                    <span className="text-xs font-black uppercase tracking-widest bg-white/20 px-3 py-1 rounded-full mb-3 border border-white/20 select-none">
+                      {slide.tag}
+                    </span>
+
+                    <h3 className="text-2xl font-black font-heading tracking-tight mb-2">
+                      {slide.title}
+                    </h3>
+
+                    <p className="text-sm text-pink-50 max-w-xs leading-relaxed">
+                      {slide.desc}
+                    </p>
+                  </div>
+                ))}
 
                 {/* Highly cute badge on top */}
                 <div className="absolute top-4 right-4 glass-item px-3.5 py-1.5 rounded-full text-xs font-bold text-slate-800 shadow-md border border-white/80 z-20">
-                  💖 Jaime's Signature Styles
+                  💖 Grooming Feature Showcase
                 </div>
 
                 {/* Left/Right manual navigation arrows */}
@@ -134,7 +163,7 @@ export default function Home() {
                   type="button"
                   onClick={handlePrevImage}
                   className="absolute left-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/70 hover:bg-white text-slate-800 flex items-center justify-center shadow-lg transition-all opacity-0 group-hover:opacity-100 duration-300 z-20 focus:opacity-105 pointer-events-auto cursor-pointer"
-                  aria-label="Previous image"
+                  aria-label="Previous slide"
                 >
                   <ChevronLeft className="w-5 h-5 stroke-[2.5]" />
                 </button>
@@ -143,14 +172,14 @@ export default function Home() {
                   type="button"
                   onClick={handleNextImage}
                   className="absolute right-3 top-1/2 -translate-y-1/2 w-9 h-9 rounded-full bg-white/70 hover:bg-white text-slate-800 flex items-center justify-center shadow-lg transition-all opacity-0 group-hover:opacity-100 duration-300 z-20 focus:opacity-105 pointer-events-auto cursor-pointer"
-                  aria-label="Next image"
+                  aria-label="Next slide"
                 >
                   <ChevronRight className="w-5 h-5 stroke-[2.5]" />
                 </button>
 
                 {/* Indicators / Dot pagination */}
                 <div className="absolute bottom-4 inset-x-0 flex justify-center gap-2 z-20">
-                  {heroImages.map((_, i) => (
+                  {showcaseSlides.map((_, i) => (
                     <button
                       type="button"
                       key={i}
