@@ -1,9 +1,16 @@
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
+
+  # Enforce HTTPS automatically to eliminate protocol/redirect latency
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
   RewriteRule ^index\.html$ - [L]
   RewriteCond %{REQUEST_FILENAME} !-f
   RewriteCond %{REQUEST_FILENAME} !-d
+  # Prevent rewriting missing static assets/media to index.html (which creates 30-sec browser wait/timeout on broken images/scripts)
+  RewriteCond %{REQUEST_URI} !\.(js|css|gif|jpe?g|png|ico|svg|woff2?|map|webp|mp4|webm|webmanifest)$ [NC]
   RewriteRule . /index.html [L]
 </IfModule>
 
